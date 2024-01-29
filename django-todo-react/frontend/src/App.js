@@ -21,9 +21,12 @@ class App extends Component {
     this.refreshList();
   }
 
+
+
   refreshList = () => {
     axios
       .get("/api/todos/")
+        //.get("/api/todos/")
       .then((res) => this.setState({ todoList: res.data }))
       .catch((err) => console.log(err));
   };
@@ -56,6 +59,7 @@ class App extends Component {
     const item = { title: "", description: "", completed: false };
 
     this.setState({ activeItem: item, modal: !this.state.modal });
+
   };
 
   editItem = (item) => {
